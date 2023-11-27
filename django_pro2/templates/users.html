@@ -1,0 +1,33 @@
+{%extends 'index.html' %}
+
+{% block content%}
+
+<div class ="row justify-content-center mt-5">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        <!-- Add 'name="password"' attribute above -->
+    </div>
+    <button type="submit" class="btn btn-primary">Signup</button>
+</form>
+</div>
+<div class="container">
+    <p>
+        {% if error_message %}
+        New user created with username {{ error_message }}
+        {% endif %}
+    </p>
+    <p>
+        {% if user %}
+        New user created with username {{ user.username }}
+        {% endif %}
+    </p>
+</div>
+
+{% endblock content%}

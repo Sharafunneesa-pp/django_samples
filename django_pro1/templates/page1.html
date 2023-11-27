@@ -1,0 +1,10 @@
+{%for i in movies%}
+<h1>Title :{{i.title | upper}}</h1>
+<p> Summary :{{i.summary | default:"there is no any content in it"}}</p>
+<p>year:{{i.year}}
+    {% if i.success %}
+    <p>movie was success </p>
+    {% else %}
+    <p>movie failed</p>
+    {% endif %}
+    {%endfor%}
